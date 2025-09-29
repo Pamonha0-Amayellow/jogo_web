@@ -1,0 +1,245 @@
+/* Estilo Básico do Macintosh Clássico */
+body {
+    background-color: #A0A0A0;
+    background-image: url('mac_screen_16_9_black.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: #000000;
+    font-family: 'Courier New', monospace; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Contêiner Principal - A "Janela" do Aplicativo que ficará DENTRO da tela do Mac */
+#game-container {
+
+    width: 38%; 
+    height: 48%; 
+    max-width: 700px;
+    max-height: 500px;
+
+    background-color: #E0E0E0;
+    border: none;
+    box-shadow: none;
+    padding: 8px;
+    z-index: 1; 
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* --- NOVO: Botão de Simular Vitória (Canto Superior Direito) --- */
+#win-button {
+    position: absolute;
+    top: 4px; /* Pequeno espaçamento do topo */
+    right: 4px; /* Pequeno espaçamento da direita */
+    font-size: 0.8em; /* Fonte menor para caber */
+    padding: 2px 6px;
+    z-index: 10;
+}
+
+/* Título e Posicionamento */
+#game-title {
+    text-align: center;
+    font-size: 1.2em;
+    padding: 4px 0;
+    border-bottom: 2px solid #808080;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-size: 1em;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Placar */
+#score {
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    padding: 4px;
+    background-color: #D0D0D0;
+    border: 1px solid #808080;
+}
+
+/* Elementos de Exibição (Áreas de Texto e Código) */
+.window-style {
+    background-color: #FFFFFF; 
+    border: 2px solid #808080; 
+    border-right-color: #FFFFFF; 
+    border-bottom-color: #FFFFFF;
+    padding: 8px;
+    margin-bottom: 10px;
+    flex-grow: 1; 
+    overflow-y: auto; 
+}
+
+/* Área do Código Defeituoso */
+.code-area {
+    background-color: #FFFFFF; 
+    border: 2px solid #808080; 
+    border-right-color: #FFFFFF; 
+    border-bottom-color: #FFFFFF;
+    padding: 8px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    font-size: 0.9em;
+    line-height: 1.2;
+    min-height: 60px; 
+    margin-bottom: 10px;
+}
+
+/* Área de Interação */
+#interaction-area {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+#user-input {
+    background-color: #FFFFFF;
+    color: #000000;
+    border: 1px solid #000000;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+}
+
+/* Botão 3D (Comum e Win) */
+.button-style {
+    background-color: #D0D0D0;
+    color: #000000;
+    border: 1px solid #000000;
+    border-top: 2px solid #FFFFFF; 
+    border-left: 2px solid #FFFFFF;
+    border-right: 2px solid #606060;
+    border-bottom: 2px solid #606060;
+
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    text-align: center;
+}
+
+.button-style:active {
+    border-top: 2px solid #606060;
+    border-left: 2px solid #606060;
+    border-right: 2px solid #FFFFFF;
+    border-bottom: 2px solid #FFFFFF;
+    background-color: #B0B0B0;
+    padding: 8px 10px 4px 14px; 
+}
+
+/* Feedback */
+#feedback {
+    margin-top: 10px;
+    font-weight: bold;
+    min-height: 20px;
+    padding: 4px;
+    border: 1px solid transparent;
+    font-size: 0.9em;
+}
+
+.correct {
+    color: #008000; 
+    background-color: #E6FFE6;
+    border-color: #008000;
+}
+
+.incorrect {
+    color: #CC0000; 
+    background-color: #FFE6E6;
+    border-color: #CC0000;
+}
+
+
+/* --- ESTILO PARA TELA DE GAME OVER/SUCESSO --- */
+#game-over-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 38%; 
+    height: 48%; 
+    max-width: 700px;
+    max-height: 500px;
+
+    background-color: #E0E0E0;
+    border: none;
+    box-shadow: none;
+
+    display: none; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+#skull-image {
+    width: 200px; 
+    height: auto;
+    margin-bottom: 15px;
+}
+
+#game-over-message {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000000; 
+    margin-bottom: 20px;
+}
+
+#game-over-screen .button-style {
+    width: auto;
+    padding: 8px 16px;
+    font-size: 1.1em;
+}
+
+
+
+
+
+
+
+
+
+
+#matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Manda o canvas para o fundo */
+    opacity: 0.7; /* Deixa o efeito sutil */
+}
+
+/* Garante que o conteúdo do jogo fique acima do canvas */
+#game-container {
+    /* Mantenha o estilo anterior e adicione z-index */
+    position: relative;
+    z-index: 1; 
+    /* ... (outras propriedades) ... */
+}
